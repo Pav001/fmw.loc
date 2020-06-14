@@ -5,8 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
- * функция для печати в нужном формате 11
+/**
+ * 
+ * функция для печати в нужном формате 
  */
 
 function debug($arr) {
