@@ -13,21 +13,20 @@ class classtable {
     public $length = "Длина";
     public $price = 0;
     
-//    public function __construct($title, $type, $h, $w, $l, $price){
-//        $this->title = $title;
-//        $this->type = $type;
-//        $this->height = $h;
-//        $this->width = $w;
-//        $this->length = $l;
-//        $this->price = $price;
-//    }
+    public function __construct($type, $height, $width, $length, $price){
+        //$this->title = $title;
+        $this->type = $type;
+        $this->height = $height;
+        $this->width = $width;
+        $this->length = $length;
+        $this->price = $price;
+    }  
     public function getHello() {
-        return  "Я {$this->title} <br>
-        {$this->type} <br>
-        Высота:{$this->height} <br>
-        Ширина:{$this->idth}<br>
-        Длина:{$this->length}<br>
-        Цена: {$this->price}<br>";
+        return  "Я {$this->title} {$this->type} <br>
+        Высота:{$this->height} см <br>
+        Ширина:{$this->width} см<br>
+        Длина:{$this->length} см<br>
+        Цена: {$this->price} долларов США<br><br>";
      }
 }
 
