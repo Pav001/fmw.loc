@@ -1,11 +1,6 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+namespace vendor\core;
 /**
  * Description of Router
  * 111
@@ -76,11 +71,17 @@ class Router {
      */
     public static function dispatch($url) {
         if(self::matchRoute($url)){
-            $controller= self::upperCamelCase(self::$route['controller']);
+            $controller= 'app\controllers\\' . self::upperCamelCase(self::$route['controller']);
             if (class_exists($controller)){
-                echo 'OK';
+                $cObj = new $controller;
+                $action = self::lowerCamelCase(self::$route['action']). 'Action';
+                if (method_exists($cObj, $action)){
+                    $cObj->$action();
+                } else {
+                    echo "Метод <b>$controller::$action</b> не найден";
+                }
             } else {
-                echo " Контроллер <b>$controller</b> не найден";
+                echo "Контроллер <b>$controller</b> не найден";
             }
         } else {
             http_response_code('404');
@@ -89,6 +90,8 @@ class Router {
     }
     protected static function upperCamelCase($name) {
         return str_replace (' ','',ucwords(str_replace ('-',' ', $name)));
-        debug($name);
+    }
+    protected static function lowerCamelCase($name) {
+        return lcfirst(self::upperCamelCase($name));
     }
 }

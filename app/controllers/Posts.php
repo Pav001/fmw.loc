@@ -1,10 +1,6 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace app\controllers;
 
 /**
  * Description of Posts
@@ -12,5 +8,10 @@
  * @author 1
  */
 class Posts {
-    //put your code here
+    public function indexAction() {
+        echo 'Posts::index';
+    }
+    public function testAction() {
+        echo 'Posts::test';
+    }
 }
