@@ -10,9 +10,9 @@ define('WWW', __DIR__);
 define('CORE', dirname(__DIR__) . '/vendor/core');
 define('ROOT', dirname(__DIR__));
 define('APP', dirname(__DIR__) . '/app');
+define('CONTROL', '\app\controllers\\');
 
 require '../vendor/libs/functions.php';
-debug($_GET);
     
 spl_autoload_register(function($class){
     $file = ROOT . '/' .str_replace('\\', '/', $class) . '.php';

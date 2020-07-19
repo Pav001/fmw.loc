@@ -68,12 +68,11 @@ class Router {
      * перенаправляет URL по корректному маршруту
      * @param string $url входящий URL
      * @return void 
-     */
+     */ 
     public static function dispatch($url) {
         $url  = self::removeQueryString($url);
-        var_dump($url);
         if(self::matchRoute($url)){
-            $controller= 'app\controllers\\' . self::$route['controller'];
+            $controller = CONTROL.self::$route['controller'];
             if (class_exists($controller)){
                 $cObj = new $controller(self::$route);
                 $action = self::lowerCamelCase(self::$route['action']). 'Action';
@@ -90,13 +89,27 @@ class Router {
             include '404.html';
         }
     }
+    /**
+     * 
+     * @param type $name
+     * @return type
+     */
     protected static function upperCamelCase($name) {
         return str_replace (' ','',ucwords(str_replace ('-',' ', $name)));
     }
+    /**
+     * 
+     * @param type $name
+     * @return type
+     */
     protected static function lowerCamelCase($name) {
         return lcfirst(self::upperCamelCase($name));
     }
-    
+/**
+ * 
+ * @param type $url
+ * @return string
+ */
     protected static function removeQueryString($url) {
         if ($url) {
             $params = explode('&', $url, 2);
