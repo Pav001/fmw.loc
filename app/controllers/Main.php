@@ -7,8 +7,22 @@ namespace app\controllers;
  *
  * @author 1
  */
-class Main {
+class Main extends App {
+    
+//    public $layout = 'main';
+
+
     public function indexAction() {
-        echo 'Main::index';
+//        echo 111;
+//        $this->layout = FALSE;
+//        $this->layout = 'main';
+//        $this->view = 'test';
+        $name = 'Андрей';
+        $hi = 'Hello';
+        $colors = [
+          'white' => 'белый',
+           'black'=> 'черный'
+        ];
+        $this->set (compact('name','hi','colors'));
     }
 }
