@@ -7,7 +7,7 @@ namespace app\controllers;
  *
  * @author 1
  */
-class Page extends \vendor\core\base\controller {
+class Page extends App {
     
     public function viewAction() {
         debug($this->route);

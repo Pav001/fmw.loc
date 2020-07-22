@@ -48,7 +48,6 @@ class Router {
     public static function matchRoute($url) {
         foreach(self::$routes as $pattern => $route){
             if(preg_match("#$pattern#i", $url, $matches)){
-                debug($matches);
                 foreach ($matches as $k => $v) {
                     if (is_string($k)){
                         $route[$k] = $v;
@@ -78,6 +77,7 @@ class Router {
                 $action = self::lowerCamelCase(self::$route['action']). 'Action';
                 if (method_exists($cObj, $action)){
                     $cObj->$action();
+                    $cObj->getView ();
                 } else {
                     echo "Метод <b>$controller::$action</b> не найден";
                 }
