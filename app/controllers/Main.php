@@ -13,10 +13,6 @@ class Main extends App {
 
 
     public function indexAction() {
-//        echo 111;
-//        $this->layout = FALSE;
-//        $this->layout = 'main';
-//        $this->view = 'test';
         $name = 'Андрей';
         $hi = 'Hello';
         $colors = [
